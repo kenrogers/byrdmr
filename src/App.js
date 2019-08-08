@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet'
 import { createGlobalStyle } from 'styled-components'
 
 import Hero from './components/Hero'
+import Contact from './components/Contact'
 
 function App() {
   const GlobalStyle = createGlobalStyle`
@@ -20,6 +21,7 @@ function App() {
         <title>ByrdMR</title>
       </Helmet>
       <Hero />
+      <Contact />
     </div>
   )
 }
