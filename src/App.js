@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Helmet } from 'react-helmet'
+import { createGlobalStyle } from 'styled-components'
+
+import './App.css'
+import Hero from './components/Hero'
 
 function App() {
+  const GlobalStyle = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css?family=Archivo:500,700&display=swap');
+  body {
+    font-family: 'Archivo', sans-serif;
+    color: #31211B;
+  }
+`
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <GlobalStyle />
+      <Helmet>
+        <title>ByrdMR</title>
+      </Helmet>
+      <Hero />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
