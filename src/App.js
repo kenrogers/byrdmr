@@ -2,7 +2,6 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import { createGlobalStyle } from 'styled-components'
 
-import './App.css'
 import Hero from './components/Hero'
 
 function App() {

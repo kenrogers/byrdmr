@@ -6,7 +6,7 @@ import logo from '../logo.svg'
 class Header extends Component {
   render() {
     const Nav = styled.nav`
-      padding: 3.75rem;
+      padding: 3.75rem 0;
       font-family: 'Archivo';
       width: 100%;
       ul {
