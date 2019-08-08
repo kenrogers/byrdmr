@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Hero/> renders and matches the snapshot 1`] = `
+<styled.div>
+  <Header />
+  <img
+    alt="ByrdMR Drone"
+    src="Drone.png"
+  />
+  <h1>
+    F-210
+  </h1>
+  <div
+    className="quote"
+  >
+    <p>
+      "The fastest drone on the planet"
+    </p>
+    <p
+      className="credit"
+    >
+      – The Wirecutter
+    </p>
+  </div>
+</styled.div>
+`;
