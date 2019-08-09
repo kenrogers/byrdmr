@@ -15,6 +15,7 @@ class Header extends Component {
       font-family: "Archivo";
       width: 100%;
       position: fixed;
+
       ul {
         margin: 0;
         list-style: none;
@@ -54,6 +55,26 @@ class Header extends Component {
           text-align: center;
         }
       }
+      @media screen and (max-width: 850px) {
+        ul li.desktop {
+          display: none;
+        }
+        ul li.mobile {
+          visibility: visible;
+        }
+        ul li.logo {
+          margin-left: 7rem;
+        }
+      }
+      @media screen and (min-width: 850px) {
+        ul li.desktop {
+          visibility: visible;
+        }
+        ul li.mobile,
+        ul #mobileMenu {
+          display: none;
+        }
+      }
     `;
 
     return (
@@ -62,10 +83,10 @@ class Header extends Component {
           <Nav>
             {mode === "hero" ? (
               <ul>
-                <li>
+                <li className="desktop">
                   <a href="#store">Store</a>
                 </li>
-                <li>
+                <li className="desktop">
                   <a href="#tutorials">Tutorials</a>
                 </li>
                 <li className="logo">
@@ -73,16 +94,21 @@ class Header extends Component {
                     <img src={logo} alt="ByrdMR Logo" />
                   </a>
                 </li>
-                <li>
+                <li className="desktop">
                   <a href="#blog">Blog</a>
                 </li>
-                <li>
+                <li className="desktop">
                   <a href="#contact">Contact</a>
+                </li>
+                <li className="menu" id="mobileMenu">
+                  <a href="#menu">
+                    <img src={menu} alt="Menu Icon" />
+                  </a>
                 </li>
               </ul>
             ) : (
               <ul className="contact">
-                <li className="social">
+                <li className="social desktop">
                   <a href="https://facebook.com">
                     <img src={facebook} alt="Facebook Logo" />
                   </a>

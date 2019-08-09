@@ -57,6 +57,11 @@ const ContactContainer = styled.div`
       }
     }
   }
+  @media screen and (max-width: 850px) {
+    .container {
+      width: 80%;
+    }
+  }
 `;
 
 const Error = styled.div`

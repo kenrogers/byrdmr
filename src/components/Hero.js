@@ -25,6 +25,11 @@ class Hero extends Component {
         text-align: center;
         margin: 0;
       }
+      @media screen and (max-width: 850px) {
+        h1 {
+          font-size: 100px;
+        }
+      }
       .quote {
         margin-bottom: 3rem;
       }
