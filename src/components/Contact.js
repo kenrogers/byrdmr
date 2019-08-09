@@ -1,8 +1,8 @@
-import React from 'react'
-import styled from 'styled-components'
-import { Formik, Form, Field, ErrorMessage } from 'formik'
+import React from "react";
+import styled from "styled-components";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 
-import arrow from '../img/arrow.svg'
+import arrow from "../img/arrow.svg";
 
 const ContactContainer = styled.div`
   min-height: 100vh;
@@ -55,95 +55,113 @@ const ContactContainer = styled.div`
       }
     }
   }
-`
+`;
 
 const Error = styled.div`
   color: #c53030;
   margin-bottom: 1.5rem;
-`
+`;
 
 function validateName(value) {
-  let error
+  let error;
   if (!value) {
-    error = 'Name is required'
+    error = "Name is required";
   }
-  return error
+  return error;
 }
 
 function validateEmail(value) {
-  let error
+  let error;
   if (!value) {
-    error = 'Required'
+    error = "Email is required";
   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
-    error = 'Invalid email address'
+    error = "Invalid email address";
   }
-  return error
+  return error;
 }
 
 function validateMessage(value) {
-  let error
+  let error;
   if (!value) {
-    error = 'Message is required'
+    error = "Message is required";
   }
-  return error
+  return error;
 }
 
 const Contact = () => (
   <ContactContainer>
     <div className="container">
       <Formik
-        initialValues={{ name: '', email: '', message: '' }}
+        initialValues={{ name: "", email: "", message: "" }}
         validate={values => {
-          let errors = {}
+          let errors = {};
           if (!values.name) {
-            errors.name = 'Name is required'
+            errors.name = "Name is required";
           }
         }}
-        onSubmit={(values, { setSubmitting }) => {
+        onSubmit={(values, { setSubmitting, isValidating }) => {
           // Send email here
-          setSubmitting(false)
+          setSubmitting(false);
         }}
-        render={({ isSubmitting, submitCount }) =>
-          submitCount === 1 ? (
+        render={({ isSubmitting, submitCount, errors, values }) =>
+          // Display submitted message if the submit count is one and none of our fields are missing
+          submitCount === 1 &&
+          errors.name === undefined &&
+          errors.email === undefined &&
+          errors.message === undefined ? (
             <p>Form successfully submitted. We'll be in touch.</p>
           ) : (
-            <Form>
-              <label htmlFor="name">Full Name</label>
-              <Field
-                type="text"
-                name="name"
-                id="name"
-                placeholder="Enter your full name"
-                validate={validateName}
-              />
-              <ErrorMessage name="name" component={Error} />
-              <label htmlFor="email">Email</label>
-              <Field
-                type="email"
-                name="email"
-                id="email"
-                placeholder="Enter your email"
-                validate={validateEmail}
-              />
-              <ErrorMessage name="email" component={Error} />
-              <label htmlFor="message">Message</label>
-              <Field
-                component="textarea"
-                name="message"
-                id="message"
-                placeholder="What are your plans?"
-                validate={validateMessage}
-              />
-              <ErrorMessage name="message" component={Error} />
-              <button type="submit" disabled={isSubmitting}>
-                Send Message <img src={arrow} alt="Arrow Icon" />
-              </button>
-            </Form>
+            <>
+              <Form>
+                <label htmlFor="name">Full Name</label>
+                <Field
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Enter your full name"
+                  validate={validateName}
+                />
+                <ErrorMessage
+                  name="name"
+                  component={Error}
+                  className="name-error"
+                />
+                <label htmlFor="email">Email</label>
+                <Field
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Enter your email"
+                  validate={validateEmail}
+                />
+                <ErrorMessage name="email" component={Error} />
+                <label htmlFor="message">Message</label>
+                <Field
+                  component="textarea"
+                  name="message"
+                  id="message"
+                  placeholder="What are your plans?"
+                  validate={validateMessage}
+                />
+                <ErrorMessage name="message" component={Error} />
+                <button
+                  type="submit"
+                  disabled={
+                    isSubmitting ||
+                    values.name === "" ||
+                    values.email === "" ||
+                    values.message === ""
+                  }
+                >
+                  Send Message <img src={arrow} alt="Arrow Icon" />
+                </button>
+              </Form>
+            </>
           )
         }
       />
     </div>
   </ContactContainer>
-)
+);
 
-export default Contact
+export default Contact;
