@@ -2,7 +2,6 @@
 
 exports[`<Hero/> renders and matches the snapshot 1`] = `
 <styled.div>
-  <Header />
   <img
     alt="ByrdMR Drone"
     src="Drone.png"

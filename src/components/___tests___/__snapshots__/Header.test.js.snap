@@ -1,48 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Header/> renders and matches the snapshot 1`] = `
-<styled.nav>
-  <ul>
-    <li>
-      <a
-        href="#store"
-      >
-        Store
-      </a>
-    </li>
-    <li>
-      <a
-        href="#tutorials"
-      >
-        Tutorials
-      </a>
-    </li>
-    <li
-      className="logo"
-    >
-      <a
-        href="#hero"
-      >
-        <img
-          alt="ByrdMR Logo"
-          src="logo.svg"
-        />
-      </a>
-    </li>
-    <li>
-      <a
-        href="#blog"
-      >
-        Blog
-      </a>
-    </li>
-    <li>
-      <a
-        href="#contact"
-      >
-        Contact
-      </a>
-    </li>
-  </ul>
-</styled.nav>
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
 `;
