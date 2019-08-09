@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import IntersectionVisible from "react-intersection-visible";
 
+import { HeaderConsumer } from "../header-context";
 import arrow from "../img/arrow.svg";
 
 const ContactContainer = styled.div`
@@ -144,17 +146,30 @@ const Contact = () => (
                   validate={validateMessage}
                 />
                 <ErrorMessage name="message" component={Error} />
-                <button
-                  type="submit"
-                  disabled={
-                    isSubmitting ||
-                    values.name === "" ||
-                    values.email === "" ||
-                    values.message === ""
-                  }
-                >
-                  Send Message <img src={arrow} alt="Arrow Icon" />
-                </button>
+                <HeaderConsumer>
+                  {({ mode, toggleMode }) => (
+                    <IntersectionVisible
+                      onShow={() => {
+                        toggleMode("contact");
+                      }}
+                      onHide={() => {
+                        toggleMode("hero");
+                      }}
+                    >
+                      <button
+                        type="submit"
+                        disabled={
+                          isSubmitting ||
+                          values.name === "" ||
+                          values.email === "" ||
+                          values.message === ""
+                        }
+                      >
+                        Send Message <img src={arrow} alt="Arrow Icon" />
+                      </button>
+                    </IntersectionVisible>
+                  )}
+                </HeaderConsumer>
               </Form>
             </>
           )

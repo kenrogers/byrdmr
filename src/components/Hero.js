@@ -1,8 +1,7 @@
-import React, { Component } from 'react'
-import styled from 'styled-components'
+import React, { Component } from "react";
+import styled from "styled-components";
 
-import Header from './Header'
-import drone from '../img/Drone.png'
+import drone from "../img/Drone.png";
 
 class Hero extends Component {
   render() {
@@ -14,6 +13,7 @@ class Hero extends Component {
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
+      padding-top: 120px;
       img {
         max-width: 429px;
         margin: auto;
@@ -41,11 +41,10 @@ class Hero extends Component {
           font-size: 14px;
         }
       }
-    `
+    `;
 
     return (
       <Hero>
-        <Header />
         <img src={drone} alt="ByrdMR Drone" />
         <h1>F-210</h1>
         <div className="quote">
@@ -53,8 +52,8 @@ class Hero extends Component {
           <p className="credit">&ndash; The Wirecutter</p>
         </div>
       </Hero>
-    )
+    );
   }
 }
 
-export default Hero
+export default Hero;
