@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Contact/> should render properly and match the snapshot 1`] = `
+<styled.div>
+  <div
+    className="container"
+  >
+    <Formik
+      enableReinitialize={false}
+      initialValues={
+        Object {
+          "email": "",
+          "message": "",
+          "name": "",
+        }
+      }
+      isInitialValid={false}
+      onSubmit={[Function]}
+      render={[Function]}
+      validate={[Function]}
+      validateOnBlur={true}
+      validateOnChange={true}
+    />
+  </div>
+</styled.div>
+`;

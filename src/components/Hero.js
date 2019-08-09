@@ -7,7 +7,7 @@ import drone from '../img/Drone.png'
 class Hero extends Component {
   render() {
     const Hero = styled.div`
-      height: 100vh;
+      min-height: 100vh;
       background: #f5f0ec;
       width: 100%;
       display: flex;
